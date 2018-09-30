@@ -1,0 +1,32 @@
+body{
+
+	background-image: url("https://www.utrgv.edu/_files/assets/images/logo.png");
+
+}
+
+#weekGlanceTable table, #weekGlanceTable th, #weekGlanceTable td{
+
+
+	border: 1px solid black;
+}
+
+h1{
+
+	color: green;
+
+
+}
+
+table {
+	width: 100%;
+}
+
+img {
+	
+
+
+	width: 150;
+	height: 200;
+}
+
+

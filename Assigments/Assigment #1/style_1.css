@@ -1,0 +1,47 @@
+h1 {
+
+	color: fuchsia;
+
+}
+
+body{
+
+
+	background-color: lime;
+	border-style: dashed;
+}
+
+table, th, td{
+
+	border: 1px solid black;
+	
+
+
+}
+
+table{
+	width: 100%;
+}
+
+img {
+	width: 150;
+	height: 200;
+
+
+
+}
+
+
+#tableRed{
+
+	color: red;
+
+
+
+}
+
+#tallTable{
+
+	height: 100;
+	color:blue;
+}

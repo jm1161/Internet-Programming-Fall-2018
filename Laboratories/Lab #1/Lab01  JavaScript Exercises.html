@@ -1,0 +1,177 @@
+
+<!-- saved from url=(0082)https://faculty.utrgv.edu/emmett.tomai/courses/3342/labs/javascript/exercises.html -->
+<html wtx-context="763908CE-E3F6-49C8-833E-8F40455945C9"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Lab01: JavaScript Exercises</title>
+</head>
+
+<body>
+
+<h1>Lab01: JavaScript Exercises</h1>
+
+<p>Save this file and open it locally in your web browser. The <code>inline</code> JavaScript below will run whenever you refresh the page.</p>
+
+<p>To complete this lab, edit the JavaScript to do as indicated.</p>
+
+<p>Since the results are being printed to the console, you will have to open your JavaScript console to see them.</p>
+
+<p>(<code>More Tools -&gt; Developer Tools -&gt; Console</code> in Chrome).</p>
+
+<script>
+// JavaScript is interpreted top to bottom, so any code in this file will be run 
+// as soon as it's loaded into a browser. Functions can be defined along the way as well.
+
+console.log("This is how you print to the console!");
+
+// The JavaScript console doesn't support user input - we'll be working with content on
+// web pages. For these exercises, we'll just assign hardcoded values to variables. Note
+// the point is that the code must work with any values you choose!
+
+
+// Q1: Declare two variables and set them to floating-point values.
+//     Display (on the console) the product of the two variables.
+
+	var1 = 2.3
+	var2 = 3.2
+	console.log("Q1.- The product of " + var1 + " and " + var2  + " is equal to: " + var1 * var2)
+
+// Q2: Declare four variables and set them to floating-point values.
+//     Calculate the average of those variables and display it.
+	
+	var1 = 2.3
+	var2 = 4.5
+	var3 = 6.7
+	var4 = 8.9
+	console.log("Q2.- The average of " + var1 + ", " + var2  + ", "+ var3 +", "+var4+ " is equal to: " + (var1 + var2 + var3+var4)/4)
+
+// Q3: Declare two variables and set them to string values.
+//     If the two strings are the same, display "Equal".
+//     If the two strings are not the same, display "Not Equal".
+
+	string1 = "Hello"
+	string2 = "world"
+	if(string1 == string2)
+	{
+		console.log("Q3.- Equal")
+	}
+	else
+	{
+		console.log("Q3.- Not equal")
+	}
+
+// Q4: Declare a variable and set it to an integer value.
+//     Determine whether the variable is even or odd, and display "Even" or "Odd".
+
+	var1 = 9
+	if(var1 % 2 == 1)
+	{
+		console.log("Q4.- Odd")
+	}
+	else
+	{
+		console.log("Q4.- Even")
+	}
+
+// Q5: Write a function that takes two variables and returns the value of the larger one.
+//     Using that function and the four variables from Q2, display the value of the largest one.
+
+	function largestNumber(param1, param2)
+	{
+		if(param1 > param2)
+		{
+			return param1
+		}
+		else
+		{
+			return param2
+		}
+	}
+	console.log("Q5.- The bigges number from var1 and var2 is: " + largestNumber(var1,var2,var3,var4))
+
+// Q6: Declare an array of five integer values.
+//     Using a loop, calculate and display their sum and average.
+
+	q6_array = [3,6,9,12,15]
+	sum = 0
+	for(i = 0; i < q6_array.length; i++)
+	{
+		sum += q6_array[i]
+	}
+	console.log("Q6.- The sum  of the array is: " + sum + " and the average is " + sum/5)
+
+// Q7: Write a function that takes an integer N and uses a loop to display all the positive 
+//     integers up to N.
+//     Call that function with the value 8 to display "1 2 3 4 5 6 7 8".
+//     (note! do it on one line using string concatenation)
+
+	function numberLineDisplay(param1)
+	{
+		outputLine = ""
+		for(i = 1; i <= param1; i++)
+		{
+			outputLine += i + " "
+		}
+		console.log(outputLine)
+	}
+	console.log("Q7.- ")
+	numberLineDisplay(8)
+
+// Q8: Using nested loops, and the variable from Q4, display that many rows of numbers.
+//     The first row should have 1, the second row should have 1 2, third row should have 1 2 3
+//     and so on.
+// e.g. Input: 4
+// Display: 1
+//          1 2
+//          1 2 3
+//          1 2 3 4
+
+	function numberStaircase(param1)
+	{
+		for(k = 1; k <= param1 ; k++)
+		{
+			for(j = 0; j < k; j++)
+			{
+				numberLineDisplay(j+1)
+			}
+		}
+	}
+	console.log("Q8.- ")
+	numberStaircase(4)
+
+// Q9: Using the array forEach method, display the numbers in the array from Q6.
+
+	console.log("Q9.- ")
+	q6_array.forEach(function(item)
+	{
+		console.log(item)
+	})
+
+// Q10: Write a function that takes an array of numbers and returns the smallest value.
+//      Call that function with the array from Q6 and display the returned value.
+
+	function smallestNumber(param1)
+	{
+		smallest = param1[0]
+		for(i = 1; i < param1.length; i++)
+		{
+			if(param1[i] < smallest)
+			{
+				smallest = param1[i]
+			}
+		}
+		return smallest
+	}
+	console.log("Q10.- ")
+	console.log(smallestNumber(q6_array))
+
+// Q11: Declare an associative array with three names as keys and ages as values.
+//      Display all the key/value pairs like: "Jose is 17".
+	
+	console.log("Q11.- ")
+	q11_array = [{"name":"Jesus","age":25},{"name":"Mauricio","age":27},{"name":"Jose", "age":17}]
+	q11_array.forEach(function(item)
+	{
+		console.log("Name: " + item['name']+ " ~Age: "+ item['age'])
+	})
+
+</script>
+</body></html>
