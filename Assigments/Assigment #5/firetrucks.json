@@ -1,0 +1,32 @@
+ [
+	{ 
+ 		"relevance": 0.49,	
+ 		"url": "www.awesomefiretrucks.com",
+ 		"title": "Best Fire Trucks 2018",
+ 		"excerpt" : "A fire engine is a vehicle designed primarily for firefighting operations. The terms fire engine and fire truck are often used interchangeably; however in some fire departments/fire services they refer to separate and specific types of vehicle"
+	},
+	{ 
+ 		"relevance": 0.73,	
+ 		"url": "www.firerescuemagazine.com",
+ 		"title": "City Fire History",
+ 		"excerpt" : "The first steam-powered fire engine came onto the scene in 1841, which helped quicken the response time, but the real game-changer was the invention of the aerial ladder in 1868. Daniel D. Hayes was the brainpower behind the invention, a native New Yorker with stints at the New York City Fire Department."
+	},
+	{ 
+ 		"relevance": 0.33,	
+ 		"url": "www.edinburgfiredepartment.com",
+ 		"title": "Edinburg Fire Deparment",
+ 		"excerpt" : "The Edinburg Fire Department responds to more than 2,000 incidents a year for service ranging from minor to those that require life-saving and property preservation. The Department serves an area of approximately 200 square miles that includes rural areas outside the city limits."
+	},
+	{ 
+ 		"relevance": 0.14,	
+ 		"url": "www.litterbox.com",
+ 		"title": "Cat Claws and Tips",
+ 		"excerpt" : "As Rum Tum Tugger's song fades, a shabby old grey cat stumbles out and looks around (begging forgiveness of her sin she made before she was exiled from the tribe years ago); it is Grizabella. All the Cats back away from her in fear and disgust and explain of her unfortunate state (Grizabella: The Glamour Cat)."
+	},
+	{
+ 		"relevance": 0.19,	
+ 		"url": "www.humansbestfriend.com",
+ 		"title": "Dog Fury Friend Club",
+ 		"excerpt" : "The first thing you’ll want to think about is how many people you have in your family and their individual needs. Small children may have difficulty with puppies or kittens—both are only babies, and they may not know how to play well together!"
+	}
+]
