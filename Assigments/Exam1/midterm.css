@@ -1,0 +1,29 @@
+
+tr { height: 100px }
+
+td { text-align: center; border: 1px solid black; width: 100px }
+
+.whack { width : 80px }
+
+/* Your CSS for Question 1 goes here */
+
+h1
+{
+	text-align: center;
+	color: blue;
+	font-family: "Courier New";
+}
+
+#greenBorder
+{
+	border-color: green;
+	border-style: solid; 
+}
+
+.subtitle
+{
+	text-align: center;
+	font-style: italic;
+	color: red;
+}
+
