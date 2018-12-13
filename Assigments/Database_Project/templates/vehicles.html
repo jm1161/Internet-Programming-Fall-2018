@@ -1,0 +1,64 @@
+{% extends "fire_dpt-layout.html" %}
+
+    {% block content %}
+<div class="container">
+  
+          <h2>Section title</h2>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th>Vehicle ID#</th>
+                 
+                  <th>Model</th>
+                  <th>Year</th>
+                  
+                 
+                  <th>Type</th>
+                  <th>License Plate</th>
+                  
+                  <th>In Service</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for vehicle in vehicles %}
+                <tr id={{vehicle.vehicleid}}>
+                  <personnel id={{vehicle.vehicleid}}>
+                    <td><pId>{{vehicle.vehicleid}}</pId></td>
+                   
+                    <td>{{vehicle.model}}</td>
+                    <td>{{vehicle.year}}</td>
+                    
+                    <td>{{vehicle.type}}</td>
+                    <td>{{vehicle.licenseplate}}</td>
+                 
+                    <td>{{vehicle.inservice}}</td>
+                    
+                    <td><a href="{{base_url()}}/editV" class = 'edit'id ='edit'>edit</a></td>
+                    <td><a href="{{base_url()}}/viewVehicle" class = 'edit'id ='edit'>details</a></td>
+                  </personnel>
+                
+              {% endfor %}
+              </tbody>
+
+            </table>
+            <a href="{{base_url()}}/addV"> <button type="button" class="btn btn-info">Add Vehicle</button></a>
+          </div>
+        </main>
+      </div>
+    </div>
+
+</div>
+
+
+
+
+    
+    {% endblock %} 
+
+
+         {% block script %}
+  <script src="{{ base_url() }}/../fire-dpt.js"></script>
+  {% endblock %}

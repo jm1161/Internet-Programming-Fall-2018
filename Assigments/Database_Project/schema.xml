@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<database name="default" defaultIdMethod="native" defaultPhpNamingMethod="underscore">
+  <table name="certifications" idMethod="native" phpName="Certifications">
+    <column name="certification_id" phpName="CertificationId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="255" required="true"/>
+    <column name="certification_number" phpName="CertificationNumber" type="VARCHAR" size="255" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="incident" idMethod="native" phpName="Incident">
+    <column name="incident_id" phpName="IncidentId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" required="true"/>
+    <column name="incident_type" phpName="IncidentType" type="VARCHAR" size="255" required="true"/>
+    <column name="location" phpName="Location" type="INTEGER" required="true"/>
+    <column name="station_id" phpName="StationId" type="INTEGER" required="true"/>
+    <foreign-key foreignTable="station" name="incident_ibfk_1">
+      <reference local="station_id" foreign="station_id"/>
+    </foreign-key>
+    <index name="station_id">
+      <index-column name="station_id"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="inventory" idMethod="native" phpName="Inventory">
+    <column name="inventory_id" phpName="InventoryId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="255" required="true"/>
+    <column name="brand" phpName="Brand" type="VARCHAR" size="255" required="true"/>
+    <column name="type" phpName="Type" type="VARCHAR" size="255" required="true"/>
+    <column name="description" phpName="Description" type="VARCHAR" size="255" required="true"/>
+    <column name="item_condition" phpName="ItemCondition" type="VARCHAR" size="255" required="true"/>
+    <column name="quantity" phpName="Quantity" type="INTEGER" required="true"/>
+    <column name="station_id" phpName="StationId" type="INTEGER" required="true"/>
+    <foreign-key foreignTable="station" name="inventory_ibfk_1">
+      <reference local="station_id" foreign="station_id"/>
+    </foreign-key>
+    <index name="station_id">
+      <index-column name="station_id"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="involved_party" idMethod="native" phpName="InvolvedParty">
+    <column name="involved_party_id" phpName="InvolvedPartyId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="255" required="true"/>
+    <column name="address" phpName="Address" type="VARCHAR" size="255" required="true"/>
+    <column name="driver_license" phpName="DriverLicense" type="VARCHAR" size="255" required="true"/>
+    <column name="phone_number" phpName="PhoneNumber" type="VARCHAR" size="255" required="true"/>
+    <column name="insurance_number" phpName="InsuranceNumber" type="VARCHAR" size="255" required="true"/>
+    <column name="incident_id" phpName="IncidentId" type="INTEGER" required="true"/>
+    <foreign-key foreignTable="incident" name="involved_party_ibfk_1">
+      <reference local="incident_id" foreign="incident_id"/>
+    </foreign-key>
+    <index name="incident_id">
+      <index-column name="incident_id"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="jurisdiction" idMethod="native" phpName="Jurisdiction">
+    <column name="jurisdiction_id" phpName="JurisdictionId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="zone_name" phpName="ZoneName" type="VARCHAR" size="255" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="personnel" idMethod="native" phpName="Personnel">
+    <column name="personnel_id" phpName="PersonnelId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="255" required="true"/>
+    <column name="address" phpName="Address" type="VARCHAR" size="255" required="true"/>
+    <column name="height" phpName="Height" type="VARCHAR" size="255" required="true"/>
+    <column name="weight" phpName="Weight" type="INTEGER" required="true"/>
+    <column name="ssn" phpName="Ssn" type="VARCHAR" size="255" required="true"/>
+    <column name="phone_number" phpName="PhoneNumber" type="VARCHAR" size="255" required="true"/>
+    <column name="shift_id" phpName="ShiftId" type="INTEGER" required="true"/>
+    <column name="certification_id" phpName="CertificationId" type="INTEGER" required="true"/>
+    <column name="station_id" phpName="StationId" type="INTEGER" required="true"/>
+    <foreign-key foreignTable="shift" name="personnel_ibfk_1">
+      <reference local="shift_id" foreign="shift_id"/>
+    </foreign-key>
+    <foreign-key foreignTable="certifications" name="personnel_ibfk_2">
+      <reference local="certification_id" foreign="certification_id"/>
+    </foreign-key>
+    <foreign-key foreignTable="station" name="personnel_ibfk_3">
+      <reference local="station_id" foreign="station_id"/>
+    </foreign-key>
+    <index name="shift_id">
+      <index-column name="shift_id"/>
+    </index>
+    <index name="certification_id">
+      <index-column name="certification_id"/>
+    </index>
+    <index name="station_id">
+      <index-column name="station_id"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="personnel_equipment" idMethod="native" phpName="PersonnelEquipment">
+    <column name="personnel_equipment_id" phpName="PersonnelEquipmentId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="255" required="true"/>
+    <column name="brand" phpName="Brand" type="VARCHAR" size="255" required="true"/>
+    <column name="type" phpName="Type" type="VARCHAR" size="255" required="true"/>
+    <column name="equipment_condition" phpName="EquipmentCondition" type="VARCHAR" size="255" required="true"/>
+    <column name="serial_number" phpName="SerialNumber" type="VARCHAR" size="255" required="true"/>
+    <column name="personnel_id" phpName="PersonnelId" type="INTEGER" required="true"/>
+    <foreign-key foreignTable="personnel" name="personnel_equipment_ibfk_1">
+      <reference local="personnel_id" foreign="personnel_id"/>
+    </foreign-key>
+    <index name="personel_id">
+      <index-column name="personnel_id"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="shift" idMethod="native" phpName="Shift">
+    <column name="shift_id" phpName="ShiftId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="shift_name" phpName="ShiftName" type="VARCHAR" size="255" required="true"/>
+    <column name="station_id" phpName="StationId" type="INTEGER" required="true"/>
+    <foreign-key foreignTable="station" name="shift_ibfk_2">
+      <reference local="station_id" foreign="station_id"/>
+    </foreign-key>
+    <index name="station_id">
+      <index-column name="station_id"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="station" idMethod="native" phpName="Station">
+    <column name="station_id" phpName="StationId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="station_name" phpName="StationName" type="VARCHAR" size="255" required="true"/>
+    <column name="address" phpName="Address" type="VARCHAR" size="255" required="true"/>
+    <column name="jurisdiction_id" phpName="JurisdictionId" type="INTEGER" required="true"/>
+    <foreign-key foreignTable="jurisdiction" name="station_ibfk_3">
+      <reference local="jurisdiction_id" foreign="jurisdiction_id"/>
+    </foreign-key>
+    <index name="jurisdiction_id">
+      <index-column name="jurisdiction_id"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="supervisors" idMethod="native" phpName="Supervisors">
+    <column name="supervisor_id" phpName="SupervisorId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="rank" phpName="Rank" type="INTEGER" required="true"/>
+    <column name="personnel_id" phpName="PersonnelId" type="INTEGER" required="true"/>
+    <foreign-key foreignTable="personnel" name="supervisors_ibfk_1">
+      <reference local="personnel_id" foreign="personnel_id"/>
+    </foreign-key>
+    <index name="personnel_id">
+      <index-column name="personnel_id"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="user" idMethod="native" phpName="User">
+    <column name="user_id" phpName="UserId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="user_name" phpName="UserName" type="VARCHAR" size="255" required="true"/>
+    <column name="user_password" phpName="UserPassword" type="VARCHAR" size="255" required="true"/>
+    <column name="station_id" phpName="StationId" type="INTEGER" required="true"/>
+    <column name="admin" phpName="Admin" type="BOOLEAN" size="1" required="true"/>
+    <foreign-key foreignTable="station" name="user_ibfk_1">
+      <reference local="station_id" foreign="station_id"/>
+    </foreign-key>
+    <index name="station_id">
+      <index-column name="station_id"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="vehicles" idMethod="native" phpName="Vehicles">
+    <column name="vehicle_id" phpName="VehicleId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="make" phpName="Make" type="VARCHAR" size="255" required="true"/>
+    <column name="model" phpName="Model" type="VARCHAR" size="255" required="true"/>
+    <column name="year" phpName="Year" type="INTEGER" required="true"/>
+    <column name="vin" phpName="Vin" type="VARCHAR" size="255" required="true"/>
+    <column name="mileage" phpName="Mileage" type="INTEGER" required="true"/>
+    <column name="type" phpName="Type" type="VARCHAR" size="255" required="true"/>
+    <column name="license_plate" phpName="LicensePlate" type="VARCHAR" size="255" required="true"/>
+    <column name="station_id" phpName="StationId" type="INTEGER" required="true"/>
+    <column name="in_service" phpName="InService" type="BOOLEAN" size="1" required="true"/>
+    <foreign-key foreignTable="station" name="vehicles_ibfk_2">
+      <reference local="station_id" foreign="station_id"/>
+    </foreign-key>
+    <index name="station_id">
+      <index-column name="station_id"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+</database>

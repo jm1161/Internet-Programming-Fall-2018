@@ -1,0 +1,66 @@
+ {% extends "fire_dpt-layout.html" %}
+              {% block content %}
+            <div class="container">
+                <form action="{{ base_url() }}/editInventory" method="POST">
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="inputName">Name</label>
+      <input name ='inputName' class="form-control" id="inputName" value="{{inventory.name}}" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputBrand">Brand</label>
+      <input name="inputBrand" class="form-control" id="inputBrand" value="{{inventory.brand}}" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputType">Type</label>
+      <input name="inputType" class="form-control" id="inputType" value="{{inventory.type}}" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputCondition">Condition</label>
+     <select name="inputCondition" type="text" class="form-control" id="inputCondition" value="{{inventory.itemcondition}}" required>
+        <option value="New">New</option>
+        <option value="Good">Good</option>
+        <option value="Used">Used</option>
+        <option value="Damaged">Damaged</option>
+      </select> 
+    </div>
+   
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="inputQuantity">Quantity</label>
+      <input name="inputQuantity" class="form-control" id="inputQuantity" value="{{inventory.quantity}}" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputDescription">Description</label>
+      <input name="inputDescription" class="form-control" id="inputDescription" value="{{inventory.description}}" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputLocation">Location</label>
+     <select name="inputLocation" type="text" class="form-control" id="inputLocation" value="{{inventory.station.stationname}}" required>
+          {% for station in stations %}
+        <option value={{station.stationid}}>{{station.stationname}}</option>
+        {% endfor %}
+      </select> 
+    </div>
+  
+     
+     
+      
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Save Item</button>
+  
+</form>
+
+<form action="{{ base_url() }}/deleteInventory" method="POST">
+  <button type="submit" class="btn btn-danger">Delete Item</button>
+</form>
+            </div>
+
+
+
+
+            {% endblock %}
+
+            {% block script %}{% endblock %}

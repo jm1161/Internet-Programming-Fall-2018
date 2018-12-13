@@ -1,0 +1,126 @@
+  {% extends "fire_dpt-layout.html" %}
+
+
+ {% block content %}
+
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<style type="text/css">
+  .img{
+    width: 100px
+    height: auto;
+  }
+</style>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+      <div class="row">
+      <div class="col-md-2  toppad  pull-right col-md-offset-2 ">
+       <br>
+      </div>
+        <div class="col-xs-10 col-sm-10 col-md-4 col-lg-8 col-xs-offset-8 col-sm-offset-8 col-md-offset-8 col-lg-offset-3 toppad" >
+   
+   
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{supervisor.personnel.name}}</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-8 col-lg-8 " align="center"> <img alt="User Pic" src="https://www.yourbusinessfreedom.com.au/wp-content/uploads/2017/02/unknown-profile-1.jpg" style="width:100px;height:auto;"> </div>
+                
+
+                <div class=" col-md-9 col-lg-9 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                    
+                      <tr>
+                        <td>address:</td>
+                        <td>{{supervisor.personnel.address}}</td>
+                      </tr>
+                      <tr>
+                        <td>height</td>
+                        <td>{{supervisor.personnel.height}}</td>
+                      </tr>
+                   
+                         <tr>
+                             <tr>
+                        <td>weigth</td>
+                        <td>{{supervisor.personnel.weight}}lbs</td>
+                      </tr>
+                        <tr>
+                        <td>Social Security Number</td>
+                        <td>{{supervisor.personnel.ssn}}</td>
+                      </tr>
+                      <tr>
+                        <td>Phone</td>
+                        <td>{{supervisor.personnel.phonenumber}}</td>
+                      </tr>
+                      <tr>
+                        <td>Certification</td>
+                        <td>{{supervisor.personnel.certifications.name}}
+                      </tr>
+                       <tr>
+                        <td>Shift</td>
+                        <td>{{supervisor.personnel.shift.shiftname}}</td>
+                      </tr>
+                         <tr>
+                        <td>Rank</td>
+                        <td>{{supervisor.rank}}</td>
+                      </tr>           
+                    </tbody>
+                  </table>
+                 
+              <table class="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Brand</th>
+                  <th>Type</th>
+                  <th>Condition</th>
+                  <th>Serial</th>
+                </tr>
+              </thead>
+                    <tbody>
+                        <tr>
+             
+                 
+                  
+                {% for equipment in equipments %}
+                <tr id={{equipment.personnelequipmentid}}>
+                  
+                    <td><pId>{{equipment.name}}</pId></td>
+                    <td>{{equipment.brand}}</td>
+                    <td>{{equipment.type}}</td>
+                    <td>{{equipment.equipmentcondition}}</td>
+                    <td>{{equipment.serialnumber}}</td>
+                    <td>{{equipment.personnelequipmentid}}</td>
+                    <td><a href="{{base_url()}}/editEquip" class ='editE'id ='editE'>edit</a></td>
+                 
+                  </tr>
+
+             
+                
+              {% endfor %}
+                    </tbody>
+                  </table>
+                  <a href="{{base_url()}}/addEquip"><button>add Equipment</button></a>
+                </div>
+              </div>
+            </div>
+                     <form action="{{ base_url() }}/editSup" method="GET">
+  <button type="submit" class="btn btn-primary">Edit</button>
+</form>
+<form action="{{ base_url() }}/deleteSupervisor" method="POST">
+  <button type="submit" class="btn btn-danger">Delete Supervisor</button>
+</form>
+          </div>
+        </div>
+      </div>
+    </div>
+     {% endblock %} 
+
+         {% block script %}
+  <script src="{{ base_url() }}/../fire-dpt.js"></script>
+  {% endblock %}

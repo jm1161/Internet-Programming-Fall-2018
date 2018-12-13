@@ -1,0 +1,74 @@
+ {% extends "fire_dpt-layout.html" %}
+              {% block content %}
+              <div class="container">
+                  <form action="{{ base_url() }}/editVehicle" method="POST">
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="inputMake">Make</label>
+      <input name ='inputMake' class="form-control" id="inputMake" value="{{vehicle.make}}" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputModel">Model</label>
+      <input name="inputModel" class="form-control" id="inputModel" value="{{vehicle.model}}" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputYear">Year</label>
+      <input name="inputYear" class="form-control" id="inputYear" value="{{vehicle.year}}" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputVin">VIN#</label>
+      <input name = 'inputVin' class="form-control" id="inputVin" value="{{vehicle.vin}}" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputMileage">Mileage</label>
+      <input name="inputMileage" class="form-control" id="inputMileage" value="{{vehicle.mileage}}" required>
+    </div>
+    
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="inputType">Type</label>
+      <input name="inputType" class="form-control" id="inputType" value="{{vehicle.type}}" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputLicense">License Plate</label>
+      <input name="inputLicense" class="form-control" id="inputLicense" value="{{vehicle.licenseplate}}" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputLocation">Location</label>
+     <select name="inputLocation" type="text" class="form-control" id="inputLocation" value="{{vehicle.station.stationname}}" required>
+         {% for station in stations %}
+        <option value={{station.stationid}}>{{station.stationname}}</option>
+        {% endfor %}
+        
+      </select> 
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputService">In Service</label>
+      <select name="inputService" type="text" class="form-control" id="inputService" required>
+        <option value="In-service">In-service</option>
+        <option value="Out-service">Out-service</option>
+        
+      </select> 
+    </div>
+     
+     </div>
+      
+
+  
+  <button type="submit" class="btn btn-primary">Save Vehicle</button>
+  
+</form>
+
+<form action="{{ base_url() }}/deleteVehicle" method="POST">
+  <button type="submit" class="btn btn-danger">Delete Vehicle</button>
+</form>
+
+              </div>
+            
+
+
+
+		        {% endblock %}
+
+            {% block script %}{% endblock %}

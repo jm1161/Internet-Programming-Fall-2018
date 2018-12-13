@@ -1,0 +1,44 @@
+ {% extends "fire_dpt-layout.html" %}
+              {% block content %}
+              <div class="container">
+                           
+  <form action="{{ base_url() }}/addStation" method="POST">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputName">Name</label>
+      <input name = 'inputName' class="form-control" id="inputName" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputAddress">Address</label>
+      <input name="inputAddress" class="form-control" id="inputAddress" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="inputJurisdiction">Jurisdiction ID#</label>
+      <select name="inputJurisdiction" type="text" class="form-control" id="inputJurisdiction" required>
+        {% for jurisdiction in jurisdictions %}
+        <option value={{jurisdiction.jurisdictionid}}>{{jurisdiction.zonename}}</option>
+        {% endfor %}
+      </select> 
+    </div>
+     <div class="form-group col-md-6">
+      <label for="inputShift">Shift</label>
+      <input name="inputShift" class="form-control" id="inputShift" required>
+    </div>
+
+     
+     </div>
+      
+
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+  
+</form>
+              </div>
+ 
+
+
+		        {% endblock %}
+
+            {% block script %}{% endblock %}

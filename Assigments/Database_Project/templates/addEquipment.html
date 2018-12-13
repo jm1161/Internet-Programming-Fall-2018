@@ -1,0 +1,43 @@
+  {% extends "fire_dpt-layout.html" %}
+
+
+ {% block content %}
+ <div class="container">
+ 	            
+  <form action="{{ base_url() }}/addEquipment" method="POST">
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputName">Name</label>
+      <input name = 'name' class="form-control" id="inputName" required>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputBrand">Brand</label>
+      <input name="brand" class="form-control" id="inputBrand" required >
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="inputType">Type</label>
+      <input name="type" type="text" class="form-control" id="inputType" required >
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="inputCondition">Condition</label>
+      <input name="condition" type="text" class="form-control" id="inputCondition" required >
+    </div>
+    <div class="form-group col-md-3">
+      <label for="inputSerial">Serial Number</label>
+      <input name="serial" type="text" class="form-control" id="inputSerial" required >
+    </div>
+
+     </div>
+      
+  
+  
+  <button type="submit" class="btn btn-primary">Add Equipment</button>
+  
+</form>
+
+ </div>
+
+  {% endblock %}

@@ -1,0 +1,43 @@
+  {% extends "fire_dpt-layout.html" %}
+
+
+ {% block content %}
+ <div class="container">
+
+   <h5>Involved Party</h5>
+   <form action="{{ base_url() }}/addIParty" method="POST">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputName">Name</label>
+      <input name="inputName" class="form-control" id="inputName" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputAddress">Address</label>
+      <input name="inputAddress" class="form-control" id="inputAddress"  required>
+    </div>
+    
+     </div>
+     <div class="form-row">
+      <div class="form-group col-md-2">
+      <label for="inputLicense">Driver License #</label>
+      <input name="inputLicense" class="form-control" id="inputLicense" required >
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputPhone">Phone #</label>
+      <input name="inputPhone" class="form-control" id="inputPhone" required >
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputInsurance">Insurance #</label>
+      <input name="inputInsurance" class="form-control" id="inputInsurance"  required>
+    </div>
+     </div>
+      <button type="submit" class="btn btn-primary">Add Involved Party</button>
+  
+</form>
+  </div>
+
+       {% endblock %} 
+
+         {% block script %}
+  <script src="{{ base_url() }}/../fire-dpt.js"></script>
+  {% endblock %}

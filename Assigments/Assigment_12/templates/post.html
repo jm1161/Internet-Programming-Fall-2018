@@ -1,0 +1,159 @@
+<html>
+
+<head>
+
+<title>JavaScript Comment Board</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+<script> 
+	var baseurl = "{{base_url()}}"
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="pb-2 mt-4 mb-2 border-bottom">
+	<h1>My Fake Blog</h1>
+</div>
+
+<div id="login_form">
+	<form>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Username</label>
+			    <input id="usernamebox" type="textbox" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
+			</div>
+			<div class="form-group">
+			    <label for="exampleInputPassword1">Password</label>
+			    <input id="passwordbox" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+			</div>
+		    <div id="loginAlert" class="alert-danger p-2 mb-2" hidden="true">That password is wrong YOU CRIMINAL.</div>
+				<button id="submitLogin" type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
+
+<div id="welcomeScreen" hidden="hidden">
+	
+	<p>Hello welcome back <username> </username>(<a id="userLogout" href="/Logout">Logout</a>)</p><userId hidden="hidden"></userId>
+	
+
+</div>
+
+
+<div class="row col-md-8 col-md-offset-2">
+
+<h2>Post About Thing</h2>
+
+<p>
+This is a wall of text. This is a wall of text. This is a wall of text. 
+This is a wall of text. This is a wall of text. This is a wall of text. 
+This is a wall of text. This is a wall of text. This is a wall of text.
+This is a wall of text. This is a wall of text. This is a wall of text.
+This is a wall of text. This is a wall of text. This is a wall of text.
+This is a wall of text. This is a wall of text. This is a wall of text.
+This is a wall of text. This is a wall of text. This is a wall of text.
+This is a wall of text. This is a wall of text. This is a wall of text.
+This is a wall of text. This is a wall of text. This is a wall of text. 
+This is a wall of text. This is a wall of text. This is a wall of text.
+This is a wall of text. This is a wall of text. This is a wall of text.
+This is a wall of text. This is a wall of text. This is a wall of text.
+This is a wall of text. This is a wall of text. This is a wall of text.
+This is a wall of text. This is a wall of text. This is a wall of text.
+This is a wall of text. This is a wall of text. This is a wall of text.
+This is a wall of text. This is a wall of text. This is a wall of text. 
+This is a wall of text. This is a wall of text. This is a wall of text.
+This is a wall of text. This is a wall of text. This is a wall of text.
+This is a wall of text. This is a wall of text. This is a wall of text.
+This is a wall of text. This is a wall of text. This is a wall of text.
+This is a wall of text. This is a wall of text. This is a wall of text.
+This is a wall of text. This is a wall of text. This is a wall of text.
+This is a wall of text. This is a wall of text. This is a wall of text. 
+This is a wall of text. This is a wall of text. This is a wall of text.
+This is a wall of text. This is a wall of text. This is a wall of text.
+This is a wall of text. This is a wall of text. This is a wall of text.
+This is a wall of text. This is a wall of text. This is a wall of text.
+This is a wall of text. This is a wall of text. This is a wall of text.
+This is a wall of text. This is a wall of text. This is a wall of text.
+</p>
+
+<div id="comment_form" hidden="hidden">
+	<div class="card w-100">
+		<h3 class="card-header">Add a comment</h3>
+		<div class="card-body">
+			<form>
+				<div class="form-group">
+					<textarea id="comment_text" rows="4" cols="60" class="form-control" placeholder="Comment"></textarea>
+				</div>
+				<div id="commentAlert" class="alert-danger p-2 mb-2" hidden="hidden">Your comment cannot be empty.</div>
+				<div class="form-group">
+					<button id="comment_submit_button" class="btn btn-primary" >Post</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="updatedList">
+	
+
+</div>
+
+
+{% for comment in comments |reverse %}
+<div id="{{comment.Id}}" class="card w-100 mt-3 commentBoard">
+	
+	<div class="card-header">
+		<div class="row">
+			<div class="col-md-11">
+				<h4 id="comment_board-userName">{{comment.user.username}} <br>{{comment.createtime.date}}</h4>
+			</div>
+			<div class="col-md-1">
+				<button class="delete_btn" class="btn">X</button>
+			</div>
+		</div>
+	</div>
+	
+	<div class="card-body">
+		<p id="comment_board-userText">{{comment.body}}</p>
+	</div>
+	<br>
+</div>
+{% endfor %}
+
+
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script src="comment.js"></script>
+<script src="js_moment.js"></script>
+
+</script>
+
+<div id="commentTemplate" class="card w-100 mt-3" hidden="hidden">
+	
+	<div class="card-header">
+		<div class="row">
+			<div class="col-md-11">
+				<h4 id="comment_board-userName"></h4>
+			</div>
+			<div class="col-md-1">
+				<button class="delete_btn" class="btn">X</button>
+			</div>
+		</div>
+	</div>
+	
+	<div class="card-body">
+		<p id="comment_board-userText"></p>
+	</div>
+	<br>
+</div>
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,93 @@
+  {% extends "fire_dpt-layout.html" %}
+
+
+ {% block content %}
+
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<style type="text/css">
+  .img{
+    width: 100px
+    height: auto;
+  }
+</style>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+      <div class="row">
+      <div class="col-md-2  toppad  pull-right col-md-offset-2 ">
+       <br>
+      </div>
+        <div class="col-xs-10 col-sm-10 col-md-4 col-lg-8 col-xs-offset-8 col-sm-offset-8 col-md-offset-8 col-lg-offset-3 toppad" >
+   
+   
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{vechicle.make}}</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-8 col-lg-8 " align="center"> <img alt="User Pic" src="https://i1.wp.com/eriemedia.ca/wp-content/uploads/2015/04/Engine-1.jpg?fit=600%2C311&ssl=1" style="width:100px;height:auto;"> </div>
+                
+
+                <div class=" col-md-9 col-lg-9 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                    
+                      <tr>
+                        <td>Make:</td>
+                        <td>{{vehicle.make}}</td>
+                      </tr>
+                      <tr>
+                        <td>Model</td>
+                        <td>{{vehicle.model}}</td>
+                      </tr>
+                      <tr>
+                        <td>Year:</td>
+                        <td>{{vehicle.year}}</td>
+                      </tr>
+                      <tr>
+                        <td>VIN</td>
+                        <td>{{vehicle.vin}}</td>
+                      </tr>
+                      <tr>
+                        <td>Mileage:</td>
+                        <td>{{vehicle.mileage}}</td>
+                      </tr>
+                      <tr>
+                        <td>Type</td>
+                        <td>{{vehicle.type}}</td>
+                      </tr>
+                      <tr>
+                        <td>License Plate:</td>
+                        <td>{{vehicle.licenseplate}}</td>
+                      </tr>
+                      <tr>
+                        <td>Location</td>
+                        <td>{{vehicle.station.stationname}}</td>
+                      </tr>
+                      <tr>
+                        <td>Vehicle Status</td>
+                        <td>{{vehicle.inservice}}</td>
+                      </tr>
+                                         
+                    </tbody>
+                  </table>
+                  
+                </div>
+              </div>
+            </div>
+
+ <form action="{{ base_url() }}/editV" method="GET">
+  <button type="submit" class="btn btn-primary">Edit</button>
+</form>
+<form action="{{ base_url() }}/deleteVehicle" method="POST">
+  <button type="submit" class="btn btn-danger">Delete Vehicle</button>
+</form>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+     {% endblock %} 

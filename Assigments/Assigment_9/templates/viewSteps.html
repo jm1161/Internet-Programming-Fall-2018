@@ -1,0 +1,27 @@
+{% extends "viewRecipes.html" %}
+
+	{% block header %}
+		<title>Recipe Instructions</title>
+		<h1>Recipe Instructions</h1>
+	{% endblock %}
+
+	{% block container %}
+		<div class="row">
+			<div class="col-md-8">
+			<h1>{{recipe.name}}</h1>
+			<p>{{recipe.description}}</p>
+			<p><label><u>Prep Time:</u></label><strong> {{recipe.preptime}} mins.</strong></p>
+			<p><label><u>Total Time:</u></label><strong> {{recipe.totaltime}} mins.</strong></p>
+			<h3>Steps</h3>
+			<ol>
+	    		{% for step in steps %}
+	        		<li>{{step.description}}</li>
+	    		{% endfor %}
+		 	</ol>
+			</div>
+			<div class="col-md-2">
+				<img class="thumb" height="250" width="250" src="{{recipe.imageurl}}">
+			</div>
+		</div>
+		<a href="/Assigment/Assigment_9/public/recipes.php">Go Home</a>
+	{% endblock %}

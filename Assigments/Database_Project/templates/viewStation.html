@@ -1,0 +1,65 @@
+  {% extends "fire_dpt-layout.html" %}
+
+
+ {% block content %}
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<style type="text/css">
+  .img{
+    width: 100px
+    height: auto;
+  }
+</style>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+      <div class="row">
+      <div class="col-md-2  toppad  pull-right col-md-offset-2 ">
+       <br>
+      </div>
+        <div class="col-xs-10 col-sm-10 col-md-4 col-lg-8 col-xs-offset-8 col-sm-offset-8 col-md-offset-8 col-lg-offset-3 toppad" >
+   
+   
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{station.name}}</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-8 col-lg-8 " align="center"> <img alt="User Pic" src="https://www.yourbusinessfreedom.com.au/wp-content/uploads/2017/02/unknown-profile-1.jpg" style="width:100px;height:auto;"> </div>
+                
+
+                <div class=" col-md-9 col-lg-9 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                    
+                      <tr>
+                        <td>address:</td>
+                        <td>{{station.address}}</td>
+                      </tr>
+                      <tr>
+                        <td>jurisdiction</td>
+                        <td>{{station.jurisdiction.zonename}}</td>
+                      </tr>
+                                         
+                    </tbody>
+                  </table>
+                  
+                </div>
+              </div>
+            </div>
+    <form action="{{ base_url() }}/editS" method="GET">
+  <button type="submit" class="btn btn-primary">Edit</button>
+</form>
+<form action="{{ base_url() }}/deleteStation" method="POST">
+  <button type="submit" class="btn btn-danger">Delete Station</button>
+</form>
+         
+            
+          </div>
+        </div>
+      </div>
+    </div>
+     {% endblock %} 

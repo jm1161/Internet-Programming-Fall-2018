@@ -1,0 +1,67 @@
+ {% extends "fire_dpt-layout.html" %}
+              {% block content %}
+              <div class = 'container'>
+                <form action="{{ base_url() }}/editPersonnel" method="POST">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputName">Name</label>
+      <input name = 'name' class="form-control" id="inputName" value="{{personnel.name}}" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputAddress">Address</label>
+      <input name="address" class="form-control" id="inputAddress" value = "{{personnel.address}}" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="inputHeight">Height</label>
+      <input name="height" type="text" class="form-control" id="inputHeight" value = "{{personnel.height}}" required>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="inputWeight">Weight</label>
+      <input name="weight" type="text" class="form-control" id="inputWeight" value = "{{personnel.weight}}" required>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="inputPhone">Phone Number</label>
+      <input name="phoneNumber" type="text" class="form-control" id="inputPhone" value = "{{personnel.phonenumber}}" required>
+    </div>
+      <div class="form-group col-md-3">
+      <label for="inputSSN">SSN</label>
+      <input name="ssn" type="text" class="form-control" id="inputSSN" value = "{{personnel.ssn}}" required>
+    </div>
+     
+
+      <div class="form-group col-md-3">
+      <label for="inputShift">Shift#</label>
+      <select name="inputShift" type="text" class="form-control" id="inputShift" required>
+        {% for shift in shifts%}
+        <option value={{shift.shiftid}}>{{shift.shiftname}}</option>
+        {% endfor %}
+      </select> 
+    </div>
+
+ <div class="form-group col-md-3">
+      <label for="inputCert">Certification</label>
+      <select name="inputCert" type="text" class="form-control" id="inputCert" required>
+        {% for certification in certifications%}
+        <option value={{certification.certificationid}}>{{certification.name}}</option>
+        {% endfor %}
+      </select> 
+    </div>
+      
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Change Personnel</button>
+  
+</form>
+<form action="{{ base_url() }}/deletePersonnel" method="POST">
+  <button type="submit" class="btn btn-danger">Delete Personnel</button>
+</form>
+
+              </div>
+            
+  
+		        {% endblock %}
+
+            {% block script %}{% endblock %}

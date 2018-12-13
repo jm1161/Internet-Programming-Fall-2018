@@ -1,0 +1,43 @@
+   {% extends "fire_dpt-layout.html" %}
+
+    {% block content %}
+<div class="col-xs-10 col-sm-10 col-md-4 col-lg-8 col-xs-offset-8 col-sm-offset-8 col-md-offset-8 col-lg-offset-3 toppad" >
+               <h2>Shifts</h2>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th>Id#</th>
+                  <th>Name</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for shift in shifts %}
+                <tr id={{shift.shiftid}}>
+                  <personnel id={{shift.shiftid}}>
+                    <td><pId>{{shift.shiftid}}</pId></td>
+                    <td>{{shift.shiftname}}</td>
+                 
+                    <td><a href="{{base_url()}}/editSh" class = 'edit'id ='edit'>edit</a></td>
+                    <td><a href="{{base_url()}}/viewShifts" class = 'edit'id ='edit'>details</a></td>
+                  </personnel>
+                
+              {% endfor %}
+              </tbody>
+
+            </table>
+            <a href="{{base_url()}}/addSh"> <button type="button" class="btn btn-info">add-Shift</button></a>
+          </div>
+
+     
+      </div>
+    </div>
+  </div>
+      {% endblock %} 
+
+
+         {% block script %}
+  <script src="{{ base_url() }}/../fire-dpt.js"></script>
+  {% endblock %}

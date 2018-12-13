@@ -1,0 +1,26 @@
+  {% extends "fire_dpt-layout.html" %}
+
+    {% block content %}
+<div class="container">
+    <form action="{{ base_url() }}/addShift" method="POST">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputName">Shift Name</label>
+      <input name = 'name' class="form-control" id="inputName" required>
+    </div>
+   
+
+     </div>
+      
+  
+  
+  <button type="submit" class="btn btn-primary">Add Shift</button>
+  
+</form>
+</div>
+      {% endblock %} 
+
+
+         {% block script %}
+  <script src="{{ base_url() }}/../fire-dpt.js"></script>
+  {% endblock %}

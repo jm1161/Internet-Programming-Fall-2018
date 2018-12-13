@@ -1,0 +1,75 @@
+  {% extends "fire_dpt-layout.html" %}
+
+
+ {% block content %}
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Start Bootstrap</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+ <div class="container">
+ 	            
+  <form action="{{ base_url() }}/editEquipment" method="POST">
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputName">Name</label>
+      <input name = 'name' class="form-control" id="inputName" value="{{equipment.name}}" required>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputBrand">Brand</label>
+      <input name="brand" class="form-control" id="inputBrand" value="{{equipment.brand}}" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="inputType">Type</label>
+      <input name="type" type="text" class="form-control" id="inputType" value="{{equipment.type}}" required>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="inputCondition">Condition</label>
+      <input name="condition" type="text" class="form-control" id="inputCondition" value="{{equipment.equipmentcondition}}" required>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="inputSerial">Serial Number</label>
+      <input name="serial" type="text" class="form-control" id="inputSerial" value="{{equipment.serialnumber}}" required>
+    </div>
+
+     </div>
+      
+  
+  
+  <button type="submit" class="btn btn-primary">Edit Equipment</button>
+
+  
+</form>
+
+
+<form action="{{ base_url() }}/deleteEquipment" method="POST">
+  <button type="submit" class="btn btn-danger">Delete Personnel</button>
+</form>
+ </div>
+
+  {% endblock %}

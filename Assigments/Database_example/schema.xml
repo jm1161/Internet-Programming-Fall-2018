@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<database name="default" defaultIdMethod="native" defaultPhpNamingMethod="underscore">
+  <table name="person" idMethod="native" phpName="Person">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="128" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="phone_numbers" idMethod="native" phpName="PhoneNumbers">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="number" phpName="Number" type="VARCHAR" size="128" required="true"/>
+    <column name="person_id" phpName="PersonId" type="INTEGER" required="true"/>
+    <foreign-key foreignTable="person" name="phone_numbers_ibfk_1">
+      <reference local="person_id" foreign="id"/>
+    </foreign-key>
+    <index name="person_id">
+      <index-column name="person_id"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+</database>

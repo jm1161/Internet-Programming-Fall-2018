@@ -1,0 +1,54 @@
+{% extends "fire_dpt-layout.html" %}
+
+    {% block content %}
+<div class="container">
+         <h2>Incidents</h2>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th>Id#</th>
+                  <th>Date </th>
+                  <th>Location</th>
+                  <th>Incident Type</th>
+                  <th>Station Name</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for incident in incidents %}
+                <tr id={{incident.incidentId}}>
+                  <personnel id={{incident.incidentId}}>
+                    <td><pId>{{incident.incidentId}}</pId></td>
+                    <td>{{incident.date}}</td>
+                    <td>{{incident.location}}</td>
+                    <td>{{incident.incidentType}}</td>
+                    <td>{{incident.station.stationname}}</td>
+                    
+                    
+                    <td><a href="{{base_url()}}/editI" class = 'edit'id ='edit'>edit</a></td>
+                    <td><a href="{{base_url()}}/viewIncident" class = 'edit'id ='edit'>details</a></td>
+                  </personnel>
+                
+              {% endfor %}
+              </tbody>
+
+            </table>
+            <a href="{{base_url()}}/addI"> <button type="button" class="btn btn-info">Add Incident</button></a>
+          </div>
+        </main>
+      </div>
+    </div>
+
+</div>
+  
+   
+
+    
+    {% endblock %} 
+
+
+         {% block script %}
+  <script src="{{ base_url() }}/../fire-dpt.js"></script>
+  {% endblock %}

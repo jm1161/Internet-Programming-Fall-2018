@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% block header %}
+			<title>Recipes List</title>
+			<h1 class="header">Recipes List</h1>
+		{% endblock %}
+
+		
+
+  		<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
+  		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  		<script> var base_url = "{{base_url()}}" </script>
+		
+	</head>
+	
+	<body>
+		<div class="container">
+			{% block container %}
+				<table class="table">
+					<p>this is the paragraph</p>
+					<tr>
+						<th></th>
+						<th style="text-align: center;">Name</th>
+						<th style="text-align: center;">Prep Time</th>
+						<th style="text-align: center;">Total Time</th>
+					</tr>
+					{%for recipe in recipes%}
+					<tr>
+						<td style="text-align: center;" rowspan="2"><img height="250" width="250" src="{{recipe.imageurl}}"></td>
+						<td style="text-align: left;"><a href="recipes.php/id={{recipe.id}}">{{recipe.name}}</a></td>
+						<td style="text-align: center;">{{recipe.preptime}}</td>
+						<td style="text-align: center;">{{recipe.totaltime}}</td>
+					</tr>
+					<tr>
+						<td style="text-align: left;" colspan="4"><i>{{recipe.description}}</i></td>
+					</tr>
+					{% endfor %}
+				</table>
+				<script src="{{base_url()}}/../recipes.js"></script>
+  			{% endblock %}
+		
+		</div>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">		
+		
+  				
+		
+
+	</body>
+</html>

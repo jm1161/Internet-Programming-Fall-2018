@@ -1,0 +1,70 @@
+ {% extends "fire_dpt-layout.html" %}
+              {% block content %}
+<div class="container">
+    <form action="{{ base_url() }}/editIncident" method="POST">
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="inputDate">Date</label>
+      <input name ='inputDate' class="form-control" id="inputDate" value="{{incident.date}}" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputType">Incident Type</label>
+      <input name="inputType" class="form-control" id="inputType" value="{{incident.incidentType}}" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputLocation">Location</label>
+      <input name="inputLocation" class="form-control" id="inputLocation" value="{{incident.location}}" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputStation">Station Name</label>
+     <select name="inputStation" type="text" class="form-control" id="inputStation" value="{{incident.station.stationname}}" required>
+      {% for station in stations %}
+        <option value="{{station.stationId}}">{{station.stationname}}</option>
+        {% endfor %}
+      </select> 
+    </div>
+  </div>
+
+
+<!--    <h5>Involved Party</h5>
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="inputName">Name</label>
+      <input name="inputName" class="form-control" id="inputName" value="{{involved.name}}">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputAddress">Address</label>
+      <input name="inputAddress" class="form-control" id="inputAddress" value="{{involved.address}}">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputLicense">Driver License #</label>
+      <input name="inputLicense" class="form-control" id="inputLicense" value="{{involved.driverlicense}}">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputPhone">Phone #</label>
+      <input name="inputPhone" class="form-control" id="inputPhone" value="{{involved.phonenumber}}">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputInsurance">Phone #</label>
+      <input name="inputInsurance" class="form-control" id="inputInsurance" value="{{involved.insurancenumber}}">
+    </div>
+     </div>
+      
+  </div> -->
+  
+  <button type="submit" class="btn btn-primary">Save Incident</button>
+  
+</form>
+
+<form action="{{ base_url() }}/deleteIncident" method="POST">
+  <button type="submit" class="btn btn-danger">Delete Incident</button>
+</form>
+</div>
+            
+
+
+
+
+		        {% endblock %}
+
+            {% block script %}{% endblock %}

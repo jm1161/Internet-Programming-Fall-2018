@@ -1,0 +1,63 @@
+ {% extends "fire_dpt-layout.html" %}
+              {% block content %}
+            
+<div class="container">
+    <form action="{{ base_url() }}/addInventory" method="POST">
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="inputName">Name</label>
+      <input name ='inputName' class="form-control" id="inputName" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputBrand">Brand</label>
+      <input name="inputBrand" class="form-control" id="inputBrand" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputType">Type</label>
+      <input name="inputType" class="form-control" id="inputType" required>
+    </div>
+    
+   <div class="form-group col-md-2">
+      <label for="inputCondition">Condition</label>
+     <select name="inputCondition" type="text" class="form-control" id="inputCondition" required>
+        <option value="New">New</option>
+        <option value="Good">Good</option>
+        <option value="Fair">Fair</option>
+        <option value="Old">Old</option>
+         <option value="Damaged">Damaged</option>
+        
+      </select> 
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="inputQuantity">Quantity</label>
+      <input name="inputQuantity" class="form-control" id="inputQuantity" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputDescription">Description</label>
+      <input name = 'inputDescription' class="form-control" id="inputDescription" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputLocation">Location</label>
+     <select name="inputLocation" type="text" class="form-control" id="inputLocation" required>
+         {% for station in stations %}
+        <option value={{station.stationid}}>{{station.stationname}}</option>
+        {% endfor %}
+        
+      </select> 
+    </div>
+   
+
+      
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+  
+</form>
+</div>
+
+
+		        {% endblock %}
+
+            {% block script %}{% endblock %}

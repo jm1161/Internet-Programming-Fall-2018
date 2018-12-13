@@ -1,0 +1,33 @@
+ {% extends "fire_dpt-layout.html" %}
+
+    {% block content %}
+<div class="container">
+    <form action="{{ base_url() }}/editCertifications" method="POST">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputName">Certification Name</label>
+      <input name = 'name' class="form-control" id="inputName" value = "{{certification.name}}" required>
+    </div>
+      <div class="form-group col-md-6">
+      <label for="inputNumber">Certification Number</label>
+      <input name = 'number' class="form-control" id="inputNumber" value = "{{certification.certificationnumber}}" required>
+    </div>
+   
+
+     </div>
+      
+  
+  
+  <button type="submit" class="btn btn-primary">Edit Certification</button>
+  
+</form>
+<form action="{{ base_url() }}/deleteCert" method="POST">
+  <button type="submit" class="btn btn-danger">Delete Certification</button>
+</form>
+</div>
+      {% endblock %} 
+
+
+         {% block script %}
+  <script src="{{ base_url() }}/../fire-dpt.js"></script>
+  {% endblock %}

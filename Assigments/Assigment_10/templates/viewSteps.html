@@ -1,0 +1,36 @@
+{% extends "viewRecipes-template.html" %}
+
+	{% block header %}
+		<title>Recipe Instructions</title>
+		<h1>Recipe Instructions</h1>
+	{% endblock %}
+
+	{% block container %}
+		<div class="row">
+			<recipe-id id="{{recipe.id}}">
+			<div class="col-md-8">
+				
+				<h1 id="recipe_name">{{recipe.name}}</h1>
+				<p id="recipe_description">{{recipe.description}}</p>
+				<p><label><u>Prep Time:</u></label><strong id="recipe_preptime"> {{recipe.preptime}} mins.</strong></p>
+				<p><label><u>Total Time:</u></label><strong id="recipe_totaltime"> {{recipe.totaltime}} mins.</strong></p>
+				<h3>Steps</h3>
+
+				<ol class="sortable" id="steps_list">
+		    		{% for step in steps %}
+		        		<li id="{{step.id}}" class="ui-state-default">{{step.description}}</li>
+		    		{% endfor %}
+		    		
+			 	</ol>
+			 	
+			 	<button id="addStep"><strong>Add a Step</strong></button> <p><i>*Disclaimer: When editing the description of a step, in order to save all changes you need to click far away from the list, the JavaScript UI encapsulates the whole lists element waiting for a drag and drop trigger, if you click on the list to save changes it will think you are trying to drag and drop and will not register as a blur action. </i></p>
+			</div>
+			<div class="col-md-2">
+				<img id="recipe_image" class="thumb" height="250" width="250" src="{{recipe.imageurl}}">
+			</div>
+		</recipe-id>
+		</div>
+		<a href="{{base_url()}}">Go Home</a>
+  		<script src="{{base_url()}}/../steps.js"></script>
+  		
+	{% endblock %}

@@ -1,0 +1,41 @@
+  {% extends "fire_dpt-layout.html" %}
+
+
+ {% block content %}
+   
+        <div class="container">
+   <h5>Involved Party</h5>
+   <form action="{{ base_url() }}/editIParty" method="POST">
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="inputName">Name</label>
+      <input name="inputName" class="form-control" id="inputName" value="{{involved.name}}" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputAddress">Address</label>
+      <input name="inputAddress" class="form-control" id="inputAddress" value="{{involved.address}}" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputLicense">Driver License #</label>
+      <input name="inputLicense" class="form-control" id="inputLicense" value="{{involved.driverlicense}}" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputPhone">Phone #</label>
+      <input name="inputPhone" class="form-control" id="inputPhone" value="{{involved.phonenumber}}" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputInsurance">Phone #</label>
+      <input name="inputInsurance" class="form-control" id="inputInsurance" value="{{involved.insurancenumber}}" required>
+    </div>
+     </div>
+            <button type="submit" class="btn btn-primary">Edit Involved Party</button>
+  
+</form>
+<form action="{{ base_url() }}/deleteIParty" method="POST">
+  <button type="submit" class="btn btn-danger">Delete Party</button>
+</form>
+  </div>
+    {% endblock %}
+         {% block script %}
+  <script src="{{ base_url() }}/../fire-dpt.js"></script>
+  {% endblock %}

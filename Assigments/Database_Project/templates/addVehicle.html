@@ -1,0 +1,65 @@
+ {% extends "fire_dpt-layout.html" %}
+              {% block content %}
+            
+  <form action="{{ base_url() }}/addVehicle" method="POST">
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="inputMake">Make</label>
+      <input name ='inputMake' class="form-control" id="inputMake"  required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputModel">Model</label>
+      <input name="inputModel" class="form-control" id="inputModel" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputYear">Year</label>
+      <input name="inputYear" class="form-control" id="inputYear" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputVin">VIN#</label>
+      <input name = 'inputVin' class="form-control" id="inputVin" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputMileage">Mileage</label>
+      <input name="inputMileage" class="form-control" id="inputMileage" required>
+    </div>
+    
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="inputType">Type</label>
+      <input name="inputType" class="form-control" id="inputType" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputLicense">License Plate</label>
+      <input name="inputLicense" class="form-control" id="inputLicense" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputLocation">Location</label>
+     <select name="inputLocation" type="text" class="form-control" id="inputLocation" required>
+        {% for station in stations %}
+        <option value="{{station.stationId}}">{{station.stationname}}</option>
+        {% endfor %}
+      </select> 
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputService">In Service</label>
+      <select name="inputService" type="text" class="form-control" id="inputService" required>
+        <option value="1">In-service</option>
+        <option value="2">Out-service</option>
+        
+      </select> 
+    </div>
+     
+     </div>
+      
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+  
+</form>
+
+
+		        {% endblock %}
+
+            {% block script %}{% endblock %}

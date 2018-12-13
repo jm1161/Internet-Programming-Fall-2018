@@ -1,0 +1,75 @@
+ {% extends "fire_dpt-layout.html" %}
+              {% block content %}
+            
+<div class="container">
+    <form action="{{ base_url() }}/editSupervisor" method="POST">
+  <div class="form-row">
+       <div class="form-group col-md-6">
+      <label for="inputName">Name</label>
+      <input name = 'name' class="form-control" id="inputName" value="{{supervisor.personnel.name}}" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputAddress">Address</label>
+      <input name="address" class="form-control" id="inputAddress" value = "{{supervisor.personnel.address}}" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="inputHeight">Height</label>
+      <input name="height" type="text" class="form-control" id="inputHeight" value = "{{supervisor.personnel.height}}" required>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="inputWeight">Weight</label>
+      <input name="weight" type="text" class="form-control" id="inputWeight" value = "{{supervisor.personnel.weight}}" required>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="inputPhone">Phone Number</label>
+      <input name="phoneNumber" type="text" class="form-control" id="inputPhone" value = "{{supervisor.personnel.phonenumber}}" required>
+    </div>
+      <div class="form-group col-md-3">
+      <label for="inputSSN">SSN</label>
+      <input name="ssn" type="text" class="form-control" id="inputSSN" value = "{{supervisor.personnel.ssn}}" required>
+    </div>
+     
+
+ <div class="form-group col-md-3">
+    
+      <label for="inputShift">Shift#</label>
+      <select name="inputShift" type="text" class="form-control" id="inputShift" required>
+        {% for shift in shifts%}
+        <option value={{shift.shiftid}}>{{shift.shiftname}}</option>
+        {% endfor %}
+      </select> 
+    </div>
+
+ <div class="form-group col-md-3">
+      <label for="inputCert">Certification</label>
+      <select name="inputCert" type="text" class="form-control" id="inputCert" required>
+        {% for certification in certifications%}
+        <option value={{certification.certificationid}}>{{certification.name}}</option>
+        {% endfor %}
+      </select> 
+    </div>
+      
+ 
+     <div class="form-group col-md-3">
+      <label for="inputRank">rank</label>
+      <input name="rank" type="text" class="form-control" id="inputRank"  value="{{supervisor.rank}}" required>
+    </div>
+     
+    </div>
+      <button type="submit" class="btn btn-primary">edit Supervisor</button>
+  </form>
+  
+<form action="{{ base_url() }}/deleteSupervisor" method="POST">
+  <button type="submit" class="btn btn-danger">Delete Supervisor</button>
+</form>
+  
+
+</div>
+
+
+		        {% endblock %}
+
+            {% block script %}{% endblock %}
